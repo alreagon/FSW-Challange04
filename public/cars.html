@@ -23,6 +23,10 @@
     <!-- Local CSS -->
     <link rel="stylesheet" href="./styles/css/searchCars.css" />
 
+    <!-- Flowbite
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" /> -->
+
+
 
 </head>
 
@@ -99,9 +103,9 @@
         <!-- search bar -->
         <section class="search-box">
             <div class="search-content">
-                <div class="input-group d-flex flex-column pe-2">
+                <div class="dropdown d-flex flex-column pe-2" data-bs-toggle="dropdown" aria-expanded="false">
                     <p>Tipe Driver</p>
-                    <select class="form-select" id="driver" required>
+                    <!-- <select class="form-select" id="driver" required>
                         <option class="item" value="" selected hidden>
                             Pilih Tipe Driver
                         </option>
@@ -109,12 +113,24 @@
                         <option class="item" value="false">
                             Tanpa Sopir (Lepas Kunci)
                         </option>
-                    </select>
+                    </select> -->
+                    <a class="btn btn-outline-secondary tugel" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Pilih Tipe Driver
+                        <span class="iconSpan">
+                            <img class="iconDropdown" src="assets/image/icon_chevron-up.png" alt="icon icon_chevron-up">
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Dengan Sopir</a></li>
+                        <li><a class="dropdown-item" href="#">Tanpa Sopir (Lepas Kunci)</a></li>
+                    </ul>
                 </div>
                 <div class="input-group d-flex flex-column pe-2">
                     <p>Tanggal</p>
                     <input type="date" class="form-control" id="date" required />
                 </div>
+
                 <div class="input-group d-flex flex-column pe-2">
                     <p>Waktu Jemput/Ambil</p>
                     <input type="time" id="time" class="form-control" required />
@@ -199,6 +215,11 @@
     <script>
         AOS.init();
     </script>
+
+    <!-- Flowbite -->
+    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
 </body>
 
 </html>

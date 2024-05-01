@@ -146,7 +146,46 @@ section {
 .input-group {
   width: 21%;
 }
-
+.dropdown {
+  width: 21%;
+  font-size: 12px;
+}
+.dropdown:active {
+  background-color: white !important;
+}
+.iconSpan {
+  margin-left: auto;
+}
+.tugel {
+  background-color: white;
+  color: #3c3c3c;
+  border: 1px solid #dee2e6;
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+}
+.tugel:hover {
+  background-color: white;
+  color: #3c3c3c;
+  border: 1px solid #42a045;
+}
+.tugel:active {
+  border: 1px solid #42a045 !important;
+  background-color: #c9e7ca !important;
+  color: #5cb85f !important;
+}
+.dropdown-menu {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 28px;
+  width: 100% !important;
+}
+.dropdown-menu .dropdown-item:hover {
+  background-color: #c9e7ca !important;
+  color: #5cb85f !important;
+  font-weight: bold !important;
+}
 .input-group > .form-control,
 .input-group > .form-select {
   border-radius: 3px !important;
