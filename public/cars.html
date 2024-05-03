@@ -103,9 +103,9 @@
         <!-- search bar -->
         <section class="search-box">
             <div class="search-content">
-                <div class="dropdown d-flex flex-column pe-2" data-bs-toggle="dropdown" aria-expanded="false">
+                <label class="custom-selector d-flex flex-column pe-2" data-bs-toggle="dropdown" aria-expanded="false">
                     <p>Tipe Driver</p>
-                    <!-- <select class="form-select" id="driver" required>
+                    <select class="form-select" id="driver" required>
                         <option class="item" value="" selected hidden>
                             Pilih Tipe Driver
                         </option>
@@ -113,38 +113,59 @@
                         <option class="item" value="false">
                             Tanpa Sopir (Lepas Kunci)
                         </option>
-                    </select> -->
-                    <a class="btn btn-outline-secondary tugel" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Pilih Tipe Driver
-                        <span class="iconSpan">
-                            <img class="iconDropdown" src="assets/image/icon_chevron-up.png" alt="icon icon_chevron-up">
-                        </span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Dengan Sopir</a></li>
-                        <li><a class="dropdown-item" href="#">Tanpa Sopir (Lepas Kunci)</a></li>
-                    </ul>
-                </div>
+                    </select>
+                </label>
                 <div class="input-group d-flex flex-column pe-2">
                     <p>Tanggal</p>
                     <input type="date" class="form-control" id="date" required />
                 </div>
 
-                <div class="input-group d-flex flex-column pe-2">
+                <!-- <div class="input-group d-flex flex-column pe-2">
                     <p>Waktu Jemput/Ambil</p>
                     <input type="time" id="time" class="form-control" required />
+                </div> -->
+
+                <div class="dropdown d-flex flex-column pe-2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <p>Waktu Jemput/Ambil</p>
+                    <select class="form-select" id="time" required>
+                        <option class="item" value="" selected hidden>
+                            Pilih Waktu
+                        </option>
+                        </option>
+                        <option value="08:00:00">08.00 WIB</option>
+                        <option value="09:00:00">09.00 WIB</option>
+                        <option value="10:00:00">10.00 WIB</option>
+                        <option value="11:00:00">11.00 WIB</option>
+                        <option value="12:00:00">12.00 WIB</option>
+                    </select>
                 </div>
+
+                <!-- <select class="form-select d-flex flex-column pe-2" id="time" aria-label="Default select example"
+                    required>
+
+                    <option class="item" value="" selected hidden>
+                        Pilih Waktu Jemput/Ambil
+                    </option>
+                    <option value="08:00:00">08.00 WIB</option>
+                    <option value="09:00:00">09.00 WIB</option>
+                    <option value="10:00:00">10.00 WIB</option>
+                    <option value="11:00:00">11.00 WIB</option>
+                    <option value="12:00:00">12.00 WIB</option>
+                </select> -->
+
                 <div class="input-group d-flex flex-column">
                     <p>Jumlah Penumpang (Opsional)</p>
                     <div class="d-flex flex-row">
-                        <input type="number" class="form-control item" id="passanger" style="background-color: #fff" />
+                        <input type="number" class="form-control item" id="passanger" placeholder="Jumlah Penumpang"
+                            style="background-color: #fff" />
                     </div>
                 </div>
 
-                <button type="submit" class="btn button-search" id="load-btn">
+                <button type="submit" class="btn btn-success" id="load-btn">
                     Cari Mobil
                 </button>
+
+                <!-- <button class="btn btn-success fw-bold ms-md-2" id="register-button" type="submit">Register</button> -->
             </div>
         </section>
         <!-- /search bar -->
@@ -155,6 +176,25 @@
                 <!-- Data JSON -->
             </div>
             <!-- /Daftar Mobil Tersedia -->
+
+
+            <div class="custom-select">
+                <div class="dropdown dropdown-driver d-flex flex-column" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <p>Tipe Driver</p>
+                    <a class="btn btn-outline-secondary tugel" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Pilih Tipe Driver
+                        <span class="iconSpan">
+                            <img class="iconDropdown" src="assets/image/icon_chevron-up.png" alt="icon icon_chevron-up">
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a value="Dengan Sopir" class="dropdown-item">Dengan Sopir</a></li>
+                        <li><a value="tanpa Sopir" class="dropdown-item">Tanpa Sopir (Lepas Kunci)</a></li>
+                    </ul>
+                </div>
+            </div>
     </main>
     <!-- End main -->
 
@@ -216,9 +256,99 @@
         AOS.init();
     </script>
 
+    <script>
+
+        // const selectElement = document.querySelectorAll(".dropdown-menu");
+        // selectElement.addEventListener("change", (event) => {
+        //     result.textContent = event.target.value;
+        // });
+
+        // ==============
+
+        // function showGenre(item) {
+        //     document.getElementById("dropdownMenu1").innerHTML = item.innerHTML;
+        // }
+
+        // ===============
+
+        document.addEventListener('DOMContentLoaded', function () {
+            let customSelects = document.querySelectorAll('.tugel');
+
+            customSelects.forEach(function (select) {
+                let selectSelected = select.querySelector('.tugel');
+                let selectItems = select.querySelector('.dropdown-menu');
+                let options = selectItems.querySelectorAll('.dropdown-item');
+
+                selectSelected.addEventListener('click', function (e) {
+                    e.stopPropagation(); // Stop the event from propagating to the window
+                    selectItems.classList.toggle('show'); // Toggle the visibility using a CSS class
+                });
+
+                options.forEach(function (option) {
+                    option.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        selectSelected.textContent = option.textContent;
+                        selectItems.classList.remove('show'); // Hide the dropdown after selection
+                    });
+                });
+
+                // Close the dropdown if the user clicks outside of it
+                window.addEventListener('click', function (e) {
+                    if (!select.contains(e.target)) {
+                        selectItems.classList.remove('show');
+                    }
+                });
+            });
+        });
+
+
+
+        // ===============
+
+        // // Get all custom select elements
+        // let customSelects = document.querySelectorAll('.custom-select');
+
+        // // Attach click event listeners to each custom select
+        // customSelects.forEach(function (select) {
+        //     let selectSelected = select.querySelector('.tugel');
+        //     let selectItems = select.querySelector('.dropdown-menu');
+        //     let options = selectItems.querySelectorAll('.dropdown-item');
+
+        //     // Toggle the dropdown visibility when the select box is clicked
+        //     selectSelected.addEventListener('click', function () {
+        //         if (selectItems.style.display === 'block') {
+        //             selectItems.style.display = 'none';
+        //         } else {
+        //             selectItems.style.display = 'block';
+        //         }
+        //     });
+
+        //     // Set the selected option and hide the dropdown when an option is clicked
+        //     options.forEach(function (option) {
+        //         option.addEventListener('click', function () {
+        //             selectSelected.textContent = option.textContent + " ????";
+        //             selectItems.style.display = 'none';
+        //         });
+        //     });
+
+        //     // Close the dropdown if the user clicks outside of it
+        //     window.addEventListener('click', function (e) {
+        //         if (!select.contains(e.target)) {
+        //             selectItems.style.display = 'none';
+        //         }
+        //     });
+        // });
+
+    </script>
     <!-- Flowbite -->
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="/styles/js/script.js" type="text/javascript"></script>
 
 </body>
 
