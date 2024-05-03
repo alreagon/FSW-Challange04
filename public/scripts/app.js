@@ -10,8 +10,30 @@ class App {
     await this.load();
 
     // Register click listener
-    // this.clearButton.onclick = this.clear;
     this.loadButton.onclick = this.run;
+
+    // Enable load button if driver, date, and time inputs are not empty
+    const driverInput = document.getElementById("driver");
+    const dateInput = document.getElementById("date");
+    const timeInput = document.getElementById("time");
+
+    // Check if all inputs have values
+    const enableLoadButton = () => {
+      if (
+        driverInput.value.trim() !== "" &&
+        dateInput.value.trim() !== "" &&
+        timeInput.value.trim() !== ""
+      ) {
+        this.loadButton.removeAttribute("disabled");
+      } else {
+        this.loadButton.setAttribute("disabled", "true");
+      }
+    };
+
+    // Add event listeners to inputs
+    driverInput.addEventListener("input", enableLoadButton);
+    dateInput.addEventListener("input", enableLoadButton);
+    timeInput.addEventListener("input", enableLoadButton);
   }
 
   // Function Filter car
@@ -19,14 +41,13 @@ class App {
     this.clear();
     const data = this.filterCar();
 
-    // Jika data yang di cari tidak ditemukan
+    // If data not found
     if (data.length == 0 || data == undefined) {
       const node = document.createElement("div");
-      node.innerHTML = `<div class="alert alert-danger mt-2" role="alert">Data Tidak Ditemukan
-    </div>`;
+      node.innerHTML = `<div class="alert alert-danger mt-2" role="alert">Data tidak ditemukan</div>`;
       this.carContainerElement.appendChild(node);
     } else {
-      // jika di temukan
+      // Data found
       data.forEach((car) => {
         const node = document.createElement("div");
         node.innerHTML = car.render();
