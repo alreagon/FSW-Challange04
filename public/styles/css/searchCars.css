@@ -86,11 +86,20 @@ section {
   line-height: 18px;
   border-radius: 4px;
   align-self: end;
+  height: 32px;
 
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
+}
+/* CSS */
+#load-btn:disabled {
+  background-color: #6c757d;
+  /* Define your styling for the disabled state here */
+  opacity: 0.5; /* Example: Reduce opacity */
+  cursor: not-allowed; /* Example: Change cursor to indicate it's not clickable */
+  /* Add any other styling you want for the disabled state */
 }
 
 .btn.selected {
@@ -144,12 +153,13 @@ section {
   justify-content: space-between;
   position: absolute;
   margin-top: -50px;
-  /* top: 60%; */
 }
 
 .input-group {
   width: 21%;
+  height: fit-content;
 }
+
 .dropdown {
   width: 21%;
   font-size: 12px;
@@ -167,51 +177,10 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.dropdown:active {
-  background-color: white !important;
-}
-.iconSpan {
-  margin-left: auto;
-}
-.tugel {
-  background-color: white;
-  color: #3c3c3c;
-  border: 1px solid #dee2e6;
-  font-size: 12px;
-  display: flex;
-  flex-direction: row;
-}
-.tugel:hover {
-  background-color: white;
-  color: #3c3c3c;
-  border: 1px solid #42a045;
-}
-.tugel:active {
-  border: 1px solid #42a045 !important;
-  background-color: #c9e7ca !important;
-  color: #5cb85f !important;
-}
-.dropdown-menu {
-  font-style: normal;
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 28px;
-  width: 100% !important;
-}
 .dropdown-menu .dropdown-item:hover {
   background-color: #c9e7ca !important;
   color: #5cb85f !important;
   font-weight: bold !important;
-}
-.select .option li {
-  position: absolute;
-  background-color: #d88181;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  z-index: 1;
-  width: 100%;
-  line-height: 18px;
-  padding: 10px;
 }
 .form-select {
   font-size: 12px !important;
@@ -223,12 +192,6 @@ input[type="number"] {
   font-weight: 300;
   font-size: 12px;
   line-height: 18px;
-}
-option li:hover {
-  background-color: #c9e7ca !important;
-  color: #5cb85f !important;
-  font-weight: bold !important;
-  width: 100%;
 }
 
 .input-group > .form-control,
@@ -258,6 +221,7 @@ option li:hover {
 .result-container {
   text-align: -webkit-center;
 }
+
 .result {
   width: 100%;
   height: fit-content;
@@ -271,12 +235,13 @@ option li:hover {
   color: black;
 }
 
-/* end search */
+/* /search */
 
-/* Footer */
+/* footer */
 footer {
   margin-top: 50vh;
   min-height: 20vh;
+  clear: both;
 }
 
 .footer {
@@ -316,7 +281,7 @@ footer {
   text-decoration: double;
 }
 
-/* End Footer */
+/* /footer */
 
 /* Responsif */
 @media screen and (max-width: 768px) {
