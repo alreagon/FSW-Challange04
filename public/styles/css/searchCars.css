@@ -67,6 +67,7 @@ section {
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
+  margin-right: 32px;
 }
 .nav-link:hover {
   color: #0d28a6;
@@ -82,7 +83,10 @@ section {
   color: #fff;
   font-size: 14px;
   padding: 8px 12px;
+  line-height: 18px;
   border-radius: 4px;
+  align-self: end;
+
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -150,6 +154,19 @@ section {
   width: 21%;
   font-size: 12px;
 }
+
+/* Chrome */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 .dropdown:active {
   background-color: white !important;
 }
@@ -186,6 +203,34 @@ section {
   color: #5cb85f !important;
   font-weight: bold !important;
 }
+.select .option li {
+  position: absolute;
+  background-color: #d88181;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: 1;
+  width: 100%;
+  line-height: 18px;
+  padding: 10px;
+}
+.form-select {
+  font-size: 12px !important;
+  line-height: 18px;
+}
+
+.item {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 18px;
+}
+option li:hover {
+  background-color: #c9e7ca !important;
+  color: #5cb85f !important;
+  font-weight: bold !important;
+  width: 100%;
+}
+
 .input-group > .form-control,
 .input-group > .form-select {
   border-radius: 3px !important;
@@ -197,16 +242,9 @@ section {
   font-family: "Helvetica";
   font-style: normal;
   font-weight: 300;
-  font-size: 12px;
+  font-size: 12px !important;
   line-height: 18px;
   color: #3c3c3c;
-}
-
-.item {
-  font-style: normal;
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 18px;
 }
 
 .form-control:hover,
@@ -215,22 +253,6 @@ section {
 .form-select:focus {
   border: 1px solid #5cb85f;
   box-shadow: none;
-}
-
-/* .show {
-  display: block;
-} */
-.button-search {
-  width: 13%;
-  background: #5cb85f;
-  border-radius: 3px;
-  border-style: none;
-  color: white;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  height: 6vh;
-  align-self: end;
 }
 
 .result-container {
